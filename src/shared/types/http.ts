@@ -1,5 +1,5 @@
 export type THttpRequest = {
-    body: Record<string, any>,
+    body: any,
     query: Record<string, any>,
     params: Record<string, any>,
     ip: string,
@@ -9,7 +9,7 @@ export type THttpRequest = {
 }
 
 export type THttpResponse = {
-    headers: Record<string, any>
+    headers?: Record<string, any>
     statusCode: number
     body: THttpResponseBody
 }

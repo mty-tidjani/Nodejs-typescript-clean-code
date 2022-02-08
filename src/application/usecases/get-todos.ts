@@ -16,7 +16,7 @@ export class GetTodosUseCase implements IUseCase<THttpRequest, Promise<TUseCaseR
 
     async run(data: THttpRequest): Promise<TUseCaseResult> {
         // Todo Heavy logic if needed here
-        
+
         return await this.todoRepository.getAll()
     }
 }

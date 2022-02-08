@@ -3,13 +3,15 @@ import IRepository, { TRepository } from "../../shared/Repository";
 
 
 export default class BaseRepository implements IRepository  {
+    
     getRepository(): TRepository {
-        return {
+        return Object.freeze({
             getAll: this.getAll,
             findOne: this.findOne,
             findById: this.findById,
-            findMany: this.findMany
-        }
+            findMany: this.findMany,
+            save: this.save
+        })
     }
 
     getAll(): Promise<any[]> {
@@ -27,5 +29,8 @@ export default class BaseRepository implements IRepository  {
     findMany(qry: any): Promise<any> {
         throw new Error("Method not implemented.");
     }
-   
+    
+    save(data: any): Promise<any> {
+        throw new Error("Method not implemented.");
+    }
 } 

@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import IRoute from "../../shared/Route";
+import IRoute from "../../shared/Router";
 
 export class BaseRouter implements IRoute {
     static path: string;

@@ -5,6 +5,7 @@ export default interface IRepository {
     findOne(qry: any): Promise<any>
     findById(id: string | number): Promise<any>
     findMany(qry: any): Promise<any>
+    save(data: any): Promise<any>
 }
 
 export type TRepository = {
@@ -12,4 +13,5 @@ export type TRepository = {
     findOne: (qry: any) => Promise<any>
     findById: (id: string | number) => Promise<any>
     findMany: (qry: any) => Promise<any>
+    save(data: any): Promise<any>
 } & Record<string, (...arg: any) => Promise<any>>
