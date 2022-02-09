@@ -5,7 +5,7 @@ export class BaseRouter implements IRoute {
     static path: string;
     protected router: Router;
 
-    constructor(router) {
+    constructor(router: Router) {
         this.router = router
     }
     

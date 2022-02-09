@@ -2,16 +2,18 @@ import IController from "../../../shared/controller";
 import { THttpRequest, THttpResponse } from "../../../shared/types/http";
 import IUseCase from "../../../shared/UseCase";
 
-export default class GetTodoController implements IController {
-    private getTodoUseCase: IUseCase
+export default class UpdateTodoController implements IController {
+    private updateTodouseCase: IUseCase
 
-    constructor(getTodoUseCase: IUseCase) {
-        this.getTodoUseCase = getTodoUseCase
+    constructor(updateTodouseCase: IUseCase) {
+        this.updateTodouseCase = updateTodouseCase
     }
 
     async make({ body }: THttpRequest): Promise<THttpResponse> {
         try {
-            const todos = await this.getTodoUseCase.run(body)
+            // Preprocess data
+
+            const todos = await this.updateTodouseCase.run(body)
 
             return {
                 body: { result: todos, statusCode: 200, success: true },

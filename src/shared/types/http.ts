@@ -17,6 +17,6 @@ export type THttpResponse = {
 type THttpResponseBody = {
     statusCode: number
     success: boolean
-    result: any
+    result?: any
     message?: string
 }

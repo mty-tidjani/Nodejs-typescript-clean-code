@@ -1,6 +1,8 @@
-export default interface IUseCase<T, Y> {
+import { THttpRequest } from "./types/http";
+
+export default interface IUseCase {
     /**
      * run
      */
-    run(data: T): Y;
+    run(data: THttpRequest): any;
 }
