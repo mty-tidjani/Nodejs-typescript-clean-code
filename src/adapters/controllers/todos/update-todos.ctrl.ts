@@ -19,7 +19,7 @@ export default class UpdateTodoController implements IController {
                 body: { result: todos, statusCode: 200, success: true },
                 statusCode: 200,
             }
-        } catch (error) {
+        } catch (error: any) {
             return {
                 body: { statusCode: 400, success: true, message: error.message },
                 statusCode: 400,

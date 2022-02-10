@@ -17,7 +17,7 @@ export default class CreateTodoController implements IController {
                 body: { result: todo, statusCode: 201, success: true },
                 statusCode: 201,
             }
-        } catch (error) {
+        } catch (error: any) {
             return {
                 body: { statusCode: 400, success: true, message: error.message },
                 statusCode: 400,

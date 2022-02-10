@@ -2,7 +2,7 @@ import IRepository, { TRepository } from "../../shared/Repository";
 
 
 
-export default class BaseRepository implements IRepository  {
+export default abstract class BaseRepository implements IRepository  {
     
     getRepository(): TRepository {
         return Object.freeze({
