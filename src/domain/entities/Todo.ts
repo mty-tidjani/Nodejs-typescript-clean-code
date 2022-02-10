@@ -1,16 +1,21 @@
+import BaseEntity from "../../shared/Entity"
 
-type TTodoIput = {
+export type TTodoIput = {
     title: string
     description: string
     state: 'pending' | 'approved' | 'done'
 }
 
-export class Todo {
+export class Todo extends BaseEntity {
     private title: string
     private description: string
     private state: 'pending' | 'approved' | 'done'
 
-    constructor({ title, description, state }: TTodoIput) {
+    constructor(data: TTodoIput) {
+        super(data)
+
+        const { title, description, state } = data
+
         if (title?.length < 10) {
             throw new Error('Todo title must be greater than 10 characters')
         }
