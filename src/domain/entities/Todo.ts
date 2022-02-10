@@ -1,4 +1,4 @@
-import BaseEntity from "../../shared/Entity"
+import BaseEntity from "./BaseEntity"
 
 export type TTodoIput = {
     title: string

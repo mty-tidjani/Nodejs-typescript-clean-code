@@ -5,16 +5,16 @@ import IUseCase from "../../../shared/UseCase";
 
 
 export class CreateTodosUseCase implements IUseCase {
-    private todoRepository: IRepository
+    private todoRepository: IRepository;
 
     constructor(todoRepository: IRepository) {
-        this.todoRepository = todoRepository
+        this.todoRepository = todoRepository;
     }
 
     async run(data: any): Promise<any> {
-        const todo = new Todo(data.body)
+        const todo = new Todo(data.body);
 
-        return await this.todoRepository.save({
+        return await this.todoRepository.insert({
             title: todo.getTitle(),
             description: todo.getDescription(),
             state: todo.getState()

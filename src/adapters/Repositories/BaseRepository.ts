@@ -10,7 +10,7 @@ export default abstract class BaseRepository implements IRepository  {
             findOne: this.findOne,
             findById: this.findById,
             findMany: this.findMany,
-            save: this.save
+            insert: this.insert
         })
     }
 
@@ -30,7 +30,7 @@ export default abstract class BaseRepository implements IRepository  {
         throw new Error("Method not implemented.");
     }
     
-    save(data: any): Promise<any> {
+    insert(data: any): Promise<any> {
         throw new Error("Method not implemented.");
     }
 } 
