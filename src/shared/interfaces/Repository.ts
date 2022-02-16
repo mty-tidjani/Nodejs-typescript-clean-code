@@ -1,4 +1,4 @@
-export default interface IRepository {
+export interface IRepository {
     getRepository(): TRepository
 
     getAll(): Promise<any[]>

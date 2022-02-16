@@ -1,6 +1,5 @@
-import IController from "../../../shared/controller";
+import {IController, IUseCase} from "../../../shared/interfaces";
 import { THttpRequest, THttpResponse } from "../../../shared/types/http";
-import IUseCase from "../../../shared/UseCase";
 
 export default class CreateTodoController implements IController {
     private getTodoUseCase: IUseCase

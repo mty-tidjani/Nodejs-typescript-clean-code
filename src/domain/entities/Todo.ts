@@ -1,3 +1,4 @@
+import validator from "../service/validator"
 import BaseEntity from "./BaseEntity"
 
 export type TTodoIput = {
@@ -16,20 +17,15 @@ export class Todo extends BaseEntity {
 
         const { title, description, state } = data
 
-        if (title?.length < 10) {
-            throw new Error('Todo title must be greater than 10 characters')
-        }
+        this.title = validator(title, 'Todo title').string().min(10).max(40).get()
 
-        if (description?.length < 10) {
-            throw new Error('Todo title must be greater than 10 characters')
-        }
+        this.description = validator(description).string().min(10).get()
 
         if (!['pending', 'approved', 'done'].includes(state)) {
             throw new Error('Todo state shoul eigther be pending, approved or done')
         }
 
-        this.title = title
-        this.description = description
+        
         this.state = state
     }
 

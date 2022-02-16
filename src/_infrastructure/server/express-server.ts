@@ -1,5 +1,5 @@
-import express from 'express';
-import bodyParser from 'body-parser';
+import * as express from 'express';
+import * as bodyParser from 'body-parser';
 import { AppRouter } from '../routes';
 
 export const startExpressServer = async (port: number) => {

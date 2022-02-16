@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import IController from "../../shared/controller"
+import {IController} from "../../shared/interfaces"
 import { THttpRequest } from "../../shared/types/http"
 
 export const makeExpressCallback = (controller: IController) => {

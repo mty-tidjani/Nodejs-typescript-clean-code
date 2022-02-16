@@ -1,4 +1,4 @@
-import IRepository, { TRepository } from "../../shared/Repository";
+import { IRepository, TRepository } from "../../shared/interfaces";
 
 
 

@@ -6,16 +6,16 @@ import CreateTodoController from "./create-todos.ctrl";
 import GetTodoController from "./get-todos.ctrl";
 import UpdateTodoController from "./update-todos.ctrl";
 
-const todoRepo = new TodoRepository();
+const todoRepository = new TodoRepository();
 
-const getTodoUC = new GetTodosUseCase(todoRepo);
-const createTodoUC = new CreateTodosUseCase(todoRepo);
-const updateTodoUC = new GetTodosUseCase(todoRepo);
+const getTodoUC = new GetTodosUseCase(todoRepository);
+const createTodoUC = new CreateTodosUseCase(todoRepository);
+const updateTodoUC = new GetTodosUseCase(todoRepository);
 
-const TodoControllers =  Object.freeze({
+const TodoController =  Object.freeze({
     getTodo: new GetTodoController(getTodoUC),
     createTodo: new CreateTodoController(createTodoUC),
     updateTodo: new UpdateTodoController(updateTodoUC)
 });
 
-export default TodoControllers;
+export default TodoController;

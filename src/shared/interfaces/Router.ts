@@ -1,5 +1,5 @@
 import { Router } from 'express'
 
-export default interface IRouter {
+export interface IRouter {
     init (): Router
 }

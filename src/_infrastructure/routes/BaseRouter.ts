@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import IRoute from "../../shared/Router";
+import { IRouter } from "../../shared/interfaces";
 
-export abstract class BaseRouter implements IRoute {
+export abstract class BaseRouter implements IRouter {
     static path: string;
     protected router: Router;
 
-    constructor(router: Router) {
-        this.router = router
+    constructor() {
+        this.router = Router()
     }
 
     init(): Router {

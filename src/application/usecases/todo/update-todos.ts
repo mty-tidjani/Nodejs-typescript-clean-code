@@ -1,7 +1,6 @@
 
 import { Todo } from "../../../domain/entities/Todo";
-import IRepository from "../../../shared/Repository";
-import IUseCase from "../../../shared/UseCase";
+import { IRepository, IUseCase } from "../../../shared/interfaces";
 
 
 export class CreateTodosUseCase implements IUseCase {
