@@ -11,6 +11,13 @@ export class StringValidator {
         this.field = field
     }
 
+    notEmpty () {
+        if (this.theString.length === 0) {
+            throw new Error(`${this.field} must have a value`)
+        }
+        return this
+    }
+
     max (max: number) {
         if (this.theString.length > max) {
             throw new Error(`${this.field} must be less than ${max} characters`)
