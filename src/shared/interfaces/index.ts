@@ -1,4 +1,5 @@
 export * from './controller'
+export * from './Encryptor'
 export * from './Repository'
 export * from './Router'
 export * from './UseCase'

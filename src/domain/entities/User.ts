@@ -23,7 +23,7 @@ export class UserEntity extends BaseEntity {
 
         this.email = validator(userInput.email).email().isValid().sanitize().get()
 
-        this.password = validator(userInput.password).string().min(6).max(15).get()
+        this.password = validator(userInput.password).string().min(6).get()
 
     }
 
