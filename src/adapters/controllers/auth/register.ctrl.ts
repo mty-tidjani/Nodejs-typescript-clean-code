@@ -10,10 +10,12 @@ export class RegisterController implements IController {
 
     async make(data: THttpRequest): Promise<THttpResponse> {
        try {
-            const todo = await this.registerUseCase.run(data.body)
+            const result = await this.registerUseCase.run(data.body)
+
+            // Todo Send Email Here
 
             return {
-                body: { result: todo, statusCode: 201, success: true },
+                body: { result, statusCode: 201, success: true },
                 statusCode: 201,
             }
         } catch (error: any) {
