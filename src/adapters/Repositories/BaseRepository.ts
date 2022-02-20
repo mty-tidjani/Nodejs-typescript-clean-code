@@ -1,36 +1,46 @@
+import { Model } from "mongoose"
 import { IRepository, TRepository } from "../../shared/interfaces";
 
 
 
-export default abstract class BaseRepository implements IRepository  {
-    
+export default abstract class BaseRepository<T> implements IRepository {
+    Model!: Model<T>;
+
     getRepository(): TRepository {
         return Object.freeze({
-            getAll: this.getAll,
+            find: this.find,
             findOne: this.findOne,
             findById: this.findById,
-            findMany: this.findMany,
-            insert: this.insert
+            create: this.create,
+            insert: this.insert,
         })
     }
 
-    getAll(): Promise<any[]> {
-        throw new Error("Method not implemented.");
+    async find(qry: any): Promise<T[]> {
+        return await this.Model.find(qry);
     }
 
-    findOne(qry: any): Promise<any> {
-        throw new Error("Method not implemented.");
+    async findOne(qry: any): Promise<T | null> {
+        return await this.Model.findOne(qry);
     }
 
-    findById(id: string | number): Promise<any> {
-        throw new Error("Method not implemented.");
+    async findById(id: string | number): Promise<T | null> {
+        return await this.Model.findById(id);
     }
 
-    findMany(qry: any): Promise<any> {
-        throw new Error("Method not implemented.");
+    async create(data: any[]): Promise<T[]> {
+        return await this.Model.create(data)
     }
-    
-    insert(data: any): Promise<any> {
-        throw new Error("Method not implemented.");
+
+    async insert(data: any): Promise<T> {
+        return await this.Model.create(data);
+    }
+
+    async updateOne(filter: any, data: any): Promise<T | null> {
+        return await this.Model.findOneAndUpdate(filter, data)
+    }
+
+    async updateMany(filter: any, data: any): Promise<T | null> {
+        return await this.Model.findOneAndUpdate(filter, data)
     }
 } 

@@ -13,10 +13,10 @@ export class CreateTodosUseCase implements IUseCase {
     async run(data: any): Promise<any> {
         const todo = new Todo(data.body);
 
-        return await this.todoRepository.insert({
+        return await this.todoRepository.create([{
             title: todo.getTitle(),
             description: todo.getDescription(),
             state: todo.getState()
-        })
+        }])
     }
 }

@@ -1,8 +1,9 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import { AppRouter } from '../routes';
+import { DataBase } from '../core/Database';
 
-export const startExpressServer = async (port: number) => {
+export const startExpressServer = async (port: number | string) => {
 
     const app = express();
 
@@ -10,5 +11,10 @@ export const startExpressServer = async (port: number) => {
 
     app.use(AppRouter.path, AppRouter.getInstance().init());
 
-    await new Promise((resolve) => app.listen(port, () => resolve(app)));
+    await new Promise((resolve) => app.listen(port, async () => {
+        
+        await DataBase.connect()
+
+        resolve(app)
+    }));
 }

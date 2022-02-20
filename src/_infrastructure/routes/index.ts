@@ -3,7 +3,7 @@ import { BaseRouter } from "./BaseRouter";
 import TodoRoutes from "./todo.routes";
 
 export class AppRouter extends BaseRouter {
-    static path = '/';
+    static path = '/api';
 
     private static instance: AppRouter
 
