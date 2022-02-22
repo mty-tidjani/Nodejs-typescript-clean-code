@@ -1,6 +1,12 @@
 import { Request, Response } from "express"
-import {IController} from "../../shared/interfaces"
-import { THttpRequest } from "../../shared/types/http"
+import { TInfractructure } from "src/shared/types/common"
+import { IController } from "../../shared/interfaces"
+import { THttpRequest } from "../../shared/types"
+import { Encryptor } from "../core/Encryptor"
+
+const infrastructure: TInfractructure = {
+  encrypt: new Encryptor()
+}
 
 export const makeExpressCallback = (controller: IController) => {
   return (req: Request, res: Response) => {
@@ -18,7 +24,7 @@ export const makeExpressCallback = (controller: IController) => {
       }
     }
 
-    controller.make(httpRequest)
+    controller.make(httpRequest, infrastructure)
       .then(httpResponse => {
         if (httpResponse.headers) {
           res.set(httpResponse.headers)
