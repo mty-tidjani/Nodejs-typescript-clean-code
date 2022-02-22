@@ -1,6 +1,6 @@
-import { TInfractructure } from "src/shared/types/common";
-import { THttpRequest, THttpResponse } from "src/shared/types/http";
-import {IController, IUseCase} from "../../../shared/interfaces";
+import { TInfractructure } from "src/domain/typings/types/common";
+import { THttpRequest, THttpResponse } from "src/domain/typings/types/http";
+import {IController, IUseCase} from "../../../domain/typings/interfaces";
 
 export class LoginController implements IController {
     private loginUseCase: IUseCase;

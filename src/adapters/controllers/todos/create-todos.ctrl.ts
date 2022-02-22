@@ -1,5 +1,6 @@
-import {IController, IUseCase} from "../../../shared/interfaces";
-import { THttpRequest, THttpResponse } from "../../../shared/types/http";
+import { TInfractructure } from "src/domain/typings/types";
+import {IController, IUseCase} from "../../../domain/typings/interfaces";
+import { THttpRequest, THttpResponse } from "../../../domain/typings/types/http";
 
 export default class CreateTodoController implements IController {
     private getTodoUseCase: IUseCase
@@ -8,9 +9,9 @@ export default class CreateTodoController implements IController {
         this.getTodoUseCase = getTodoUseCase
     }
 
-    async make({ body }: THttpRequest): Promise<THttpResponse> {
+    async make({ body }: THttpRequest, infra: TInfractructure): Promise<THttpResponse> {
         try {
-            const todo = await this.getTodoUseCase.run(body)
+            const todo = await this.getTodoUseCase.run(body, infra)
 
             return {
                 body: { result: todo, statusCode: 201, success: true },

@@ -1,5 +1,6 @@
 
-import { IRepository, IUseCase } from "../../../shared/interfaces";
+import { THttpRequest, TInfractructure } from "src/domain/typings/types";
+import { IRepository, IUseCase } from "../../../domain/typings/interfaces";
 
 type TUseCaseResult = {
 
@@ -12,7 +13,7 @@ export class GetTodosUseCase implements IUseCase {
         this.todoRepository = todoRepository;
     }
 
-    async run(data: any): Promise<TUseCaseResult> {
+    async run(data: THttpRequest, _infra: TInfractructure): Promise<TUseCaseResult> {
         // Todo Heavy logic if needed here
 
         return await this.todoRepository.find({});

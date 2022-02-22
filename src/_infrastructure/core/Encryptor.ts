@@ -1,5 +1,5 @@
 import * as bcrypt from "bcryptjs";
-import { IEncryptor } from "src/shared/interfaces";
+import { IEncryptor } from "src/domain/typings/interfaces";
 
 export class Encryptor implements IEncryptor {
     hash(input: string): string {

@@ -1,6 +1,6 @@
 import { UserEntity } from "src/domain/entities/User";
-import { IRepository, IUseCase } from "src/shared/interfaces";
-import { TInfractructure, THttpRequest } from "src/shared/types";
+import { IRepository, IUseCase } from "src/domain/typings/interfaces";
+import { TInfractructure, THttpRequest } from "src/domain/typings/types";
 
 export class RegisterUseCase implements IUseCase {
     private userRepository: IRepository

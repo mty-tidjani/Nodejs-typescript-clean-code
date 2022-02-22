@@ -1,5 +1,5 @@
 import { Model } from "mongoose"
-import { IRepository, TRepository } from "../../shared/interfaces";
+import { IRepository, TRepository } from "../../domain/typings/interfaces";
 
 
 

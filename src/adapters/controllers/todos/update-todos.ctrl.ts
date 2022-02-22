@@ -1,5 +1,6 @@
-import { IController, IUseCase } from "../../../shared/interfaces";
-import { THttpRequest, THttpResponse } from "../../../shared/types/http";
+import { TInfractructure } from "src/domain/typings/types";
+import { IController, IUseCase } from "../../../domain/typings/interfaces";
+import { THttpRequest, THttpResponse } from "../../../domain/typings/types/http";
 
 export default class UpdateTodoController implements IController {
     private updateTodouseCase: IUseCase
@@ -8,11 +9,11 @@ export default class UpdateTodoController implements IController {
         this.updateTodouseCase = updateTodouseCase
     }
 
-    async make({ body }: THttpRequest): Promise<THttpResponse> {
+    async make({ body }: THttpRequest, infra: TInfractructure): Promise<THttpResponse> {
         try {
             // Preprocess data
 
-            const todos = await this.updateTodouseCase.run(body)
+            const todos = await this.updateTodouseCase.run(body, infra)
 
             return {
                 body: { result: todos, statusCode: 200, success: true },
