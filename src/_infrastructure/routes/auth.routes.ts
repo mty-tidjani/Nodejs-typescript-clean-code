@@ -1,4 +1,4 @@
-import AuthController from "src/adapters/controllers/auth";
+import AuthController from "@controllers/auth";
 import { makeExpressCallback } from "../server/express-callback";
 import { BaseRouter } from "./BaseRouter";
 

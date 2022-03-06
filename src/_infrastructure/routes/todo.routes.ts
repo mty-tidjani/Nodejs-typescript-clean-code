@@ -1,4 +1,4 @@
-import TodoController from "../../adapters/controllers/todos/index";
+import TodoController from "@controllers/todos/index";
 import { makeExpressCallback } from "../server/express-callback";
 
 import { BaseRouter } from "./BaseRouter";

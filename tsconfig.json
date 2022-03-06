@@ -9,7 +9,11 @@
         "sourceMap": true,
         "noImplicitAny": true,
         "baseUrl": ".",
-        "outDir": "./dist"
+        "outDir": "./dist",
+        "paths": {
+            "@typings/*": ["src/domain/typings/*"],
+            "@controllers/*": ["src/adapters/controllers/*"],
+        }
     },
     "exclude": [
         "node_modules",

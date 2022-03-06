@@ -11,7 +11,7 @@ export default class CreateTodoController implements IController {
 
     async make({ body }: THttpRequest, infra: TInfractructure): Promise<THttpResponse> {
         try {
-            const todo = await this.getTodoUseCase.run(body, infra)
+            const todo = await this.getTodoUseCase.execute(body, infra)
 
             return {
                 body: { result: todo, statusCode: 201, success: true },

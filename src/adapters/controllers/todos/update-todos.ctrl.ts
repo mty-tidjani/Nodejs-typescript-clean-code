@@ -13,7 +13,7 @@ export default class UpdateTodoController implements IController {
         try {
             // Preprocess data
 
-            const todos = await this.updateTodouseCase.run(body, infra)
+            const todos = await this.updateTodouseCase.execute(body, infra)
 
             return {
                 body: { result: todos, statusCode: 200, success: true },

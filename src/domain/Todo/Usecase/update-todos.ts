@@ -1,7 +1,8 @@
 
 import { THttpRequest, TInfractructure } from "src/domain/typings/types";
-import { Todo } from "../../../domain/entities/Todo";
-import { IRepository, IUseCase } from "../../../domain/typings/interfaces";
+
+import { IRepository, IUseCase } from "../../typings/interfaces";
+import { Todo } from "../Entities/Todo";
 
 
 export class CreateTodosUseCase implements IUseCase {
@@ -11,13 +12,13 @@ export class CreateTodosUseCase implements IUseCase {
         this.todoRepository = todoRepository;
     }
 
-    async run(data: THttpRequest, _infra: TInfractructure): Promise<any> {
+    async execute(data: THttpRequest, _infra: TInfractructure): Promise<any> {
         const todo = new Todo(data.body);
 
         return await this.todoRepository.insert({
-            title: todo.getTitle(),
-            description: todo.getDescription(),
-            state: todo.getState()
+            title: todo.title,
+            description: todo.description,
+            state: todo.state
         });
     }
 }

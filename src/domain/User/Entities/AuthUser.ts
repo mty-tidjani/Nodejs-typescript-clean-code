@@ -1,5 +1,5 @@
-import validator from "../service/validator"
-import BaseEntity from "./BaseEntity"
+import BaseEntity from "../../entities/BaseEntity"
+import validator from "../../service/validator"
 
 type UserInput = {
     name: string

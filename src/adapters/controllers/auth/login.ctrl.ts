@@ -11,7 +11,7 @@ export class LoginController implements IController {
 
     async make(data: THttpRequest, infrastructure: TInfractructure): Promise<THttpResponse> {
        try {
-            const result = await this.loginUseCase.run(data.body, infrastructure)
+            const result = await this.loginUseCase.execute(data.body, infrastructure)
 
             return {
                 body: { result, statusCode: 200, success: true },

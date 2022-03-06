@@ -1,4 +1,4 @@
-import { UserEntity } from "./User"
+import { UserEntity } from "./AuthUser"
 
 describe('User Entity', () => {
     let userData: any

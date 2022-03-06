@@ -1,7 +1,6 @@
 import { Request, Response } from "express"
-import { TInfractructure } from "src/domain/typings/types/common"
-import { IController } from "../../domain/typings/interfaces"
-import { THttpRequest } from "../../domain/typings/types"
+import { IController } from "@typings/interfaces"
+import { THttpRequest, TInfractructure } from "@typings/types"
 import { Encryptor } from "../core/Encryptor"
 
 const infrastructure: TInfractructure = {

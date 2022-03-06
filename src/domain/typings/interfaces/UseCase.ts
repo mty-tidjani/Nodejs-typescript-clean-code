@@ -5,5 +5,5 @@ export interface IUseCase {
     /**
      * run
      */
-    run(data: THttpRequest, infrastructure: TInfractructure): any;
+    execute(data: THttpRequest, infrastructure: TInfractructure): any;
 }
