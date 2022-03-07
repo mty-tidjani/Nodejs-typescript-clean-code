@@ -35,24 +35,24 @@ describe('Todo Entity', () => {
         expect(createTodoUC.execute({ body: empty } as any, {} as any)).rejects.toThrow('Data must be valid!')
     })
 
-    // it('Should throw error if todo title is less than 10 character', () => {
-    //     todoInput.title = '';
+    it('Should throw error if todo title is less than 10 character', () => {
+        todoInput.title = '';
 
-    //     expect(() => new Todo(todoInput)).toThrow()
-    // })
+        expect(createTodoUC.execute({ body:todoInput} as any, {} as any)).rejects.toThrow()
+    })
 
-    // it('Should throw if description is les than 10 characters', () => {
-    //     todoInput.description = ''
+    it('Should throw if description is les than 10 characters', () => {
+        todoInput.description = ''
 
-    //     expect(() => new Todo(todoInput)).toThrow()
-    // })
+        expect(createTodoUC.execute({ body:todoInput} as any, {} as any)).rejects.toThrow()
+    })
 
-    // it("Should throw if state is not in ['pending', 'approved', 'done']", () => {
-    //     const state: any = 'undefined'
-    //     todoInput.state = state;
+    it("Should throw if state is not in ['pending', 'approved', 'done']", () => {
+        const state: any = 'undefined'
+        todoInput.state = state;
 
-    //     expect(() => new Todo(todoInput)).toThrow()
-    // })
+        expect(createTodoUC.execute({ body:todoInput} as any, {} as any)).rejects.toThrow()
+    })
 
     // it("Should be idempotent", () => {
     //     const todo1 = new Todo(todoInput)

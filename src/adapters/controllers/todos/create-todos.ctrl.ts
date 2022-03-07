@@ -3,11 +3,9 @@ import {IController, IUseCase} from "../../../domain/typings/interfaces";
 import { THttpRequest, THttpResponse } from "../../../domain/typings/types/http";
 
 export default class CreateTodoController implements IController {
-    private getTodoUseCase: IUseCase
+   
 
-    constructor(getTodoUseCase: IUseCase) {
-        this.getTodoUseCase = getTodoUseCase
-    }
+    constructor(private getTodoUseCase: IUseCase) {}
 
     async make({ body }: THttpRequest, infra: TInfractructure): Promise<THttpResponse> {
         try {
