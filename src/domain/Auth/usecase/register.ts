@@ -18,17 +18,18 @@ export class RegisterUseCase implements IUseCase {
 
         const passwordHash = encrypt.hash(userData.password)
 
+        const emailToken = encrypt.hash(userData.email)
         // Todo send verification email to user
 
-        return await this.userRepository.create({ ...userData, password: passwordHash })
+        return await this.userRepository.create({ ...userData, password: passwordHash, emailToken })
 
     }
 
     private vaildate(data: AuthUserEntity) {
         const schema = Joi.object({
-            title: Joi.string().min(10).max(40).required(),
-            description: Joi.string().min(10).required(),
-            state: Joi.string().valid('pending', 'approved', 'done').required(),
+            email: Joi.string().email().min(10).max(40).required(),
+            password: Joi.string().min(6).required(),
+            userId: Joi.string().required(),
         }).required()
 
         const result = schema.validate(data)
