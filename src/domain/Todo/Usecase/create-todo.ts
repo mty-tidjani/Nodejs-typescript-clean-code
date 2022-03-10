@@ -1,8 +1,7 @@
 import * as Joi from 'joi';
 
-import validator from "../../service/validator";
-import { THttpRequest, TInfractructure } from "src/domain/typings/types";
-import { IUseCase } from "../../typings/interfaces";
+import { THttpRequest, TInfractructure } from "@libs/types";
+import { IUseCase } from "@libs/interfaces";
 import { Todo } from "../Entities/Todo";
 import ITodoRepository from "../Port/ITodoRepository";
 
@@ -20,7 +19,6 @@ export default class CreateTodo implements IUseCase {
         const todo = new Todo(body);
 
         return await this.todoRepository.create({
-            id: 'xxxx',
             title: todo.title,
             description: todo.description,
             state: todo.state

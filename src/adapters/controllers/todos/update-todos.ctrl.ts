@@ -1,6 +1,6 @@
-import { TInfractructure } from "src/domain/typings/types";
-import { IController, IUseCase } from "../../../domain/typings/interfaces";
-import { THttpRequest, THttpResponse } from "../../../domain/typings/types/http";
+import { TInfractructure } from "@libs/types";
+import { IController, IUseCase } from "@libs/interfaces";
+import { THttpRequest, THttpResponse } from "@libs/types/http";
 
 export default class UpdateTodoController implements IController {
     private updateTodouseCase: IUseCase

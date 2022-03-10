@@ -1,6 +1,7 @@
 
-import { CreateTodosUseCase } from "../../../domain/Auth/usecase/create-todos";
-import { GetTodosUseCase } from "../../../application/usecases/todo/get-todos";
+
+import { GetTodosUseCase } from "src/domain/Todo/Usecase/get-todos";
+import { CreateTodosUseCase } from "src/domain/Todo/Usecase/update-todos";
 import TodoRepository from "../../Repositories/TodoRepository";
 import CreateTodoController from "./create-todos.ctrl";
 import GetTodoController from "./get-todos.ctrl";

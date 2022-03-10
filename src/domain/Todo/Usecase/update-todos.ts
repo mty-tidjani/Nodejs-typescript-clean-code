@@ -1,21 +1,20 @@
 
-import { THttpRequest, TInfractructure } from "src/domain/typings/types";
+import { THttpRequest, TInfractructure } from "@libs/types";
 
-import { IRepository, IUseCase } from "../../typings/interfaces";
+import { IUseCase } from "@libs/interfaces";
 import { Todo } from "../Entities/Todo";
+import ITodoRepository from "../Port/ITodoRepository";
 
 
 export class CreateTodosUseCase implements IUseCase {
-    private todoRepository: IRepository;
 
-    constructor(todoRepository: IRepository) {
-        this.todoRepository = todoRepository;
+    constructor(private todoRepository: ITodoRepository) {
     }
 
     async execute(data: THttpRequest, _infra: TInfractructure): Promise<any> {
         const todo = new Todo(data.body);
 
-        return await this.todoRepository.insert({
+        return await this.todoRepository.create({
             title: todo.title,
             description: todo.description,
             state: todo.state

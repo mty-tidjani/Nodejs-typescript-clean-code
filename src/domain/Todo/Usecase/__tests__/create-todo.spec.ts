@@ -3,6 +3,10 @@ import ITodoRepository from "../../Port/ITodoRepository";
 import CreateTodo from "../create-todo"
 
 class InMemoryTodoRepository implements ITodoRepository {
+    find(qry: any): Promise<Todo[] | null> {
+        throw new Error("Method not implemented.");
+    }
+    
     create(todo: Todo): Promise<Todo | null> {
         throw new Error("Method not implemented.");
     }

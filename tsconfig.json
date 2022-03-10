@@ -11,7 +11,7 @@
         "baseUrl": ".",
         "outDir": "./dist",
         "paths": {
-            "@typings/*": ["src/domain/typings/*"],
+            "@libs/*": ["src/libs/*"],
             "@controllers/*": ["src/adapters/controllers/*"],
         }
     },

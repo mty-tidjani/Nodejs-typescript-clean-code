@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { IRouter } from "../../domain/typings/interfaces";
+import { IRouter } from "@libs/interfaces";
 
 export abstract class BaseRouter implements IRouter {
     static path: string;

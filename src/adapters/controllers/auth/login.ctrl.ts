@@ -1,16 +1,13 @@
-import { TInfractructure } from "src/domain/typings/types/common";
-import { THttpRequest, THttpResponse } from "src/domain/typings/types/http";
-import {IController, IUseCase} from "../../../domain/typings/interfaces";
+import { TInfractructure } from "@libs/types/common";
+import { THttpRequest, THttpResponse } from "@libs/types/http";
+import { IController, IUseCase } from "@libs/interfaces";
 
 export class LoginController implements IController {
-    private loginUseCase: IUseCase;
-    
-    constructor(loginUseCase: IUseCase) {
-        this.loginUseCase = loginUseCase
-    }
+
+    constructor(private loginUseCase: IUseCase) { }
 
     async make(data: THttpRequest, infrastructure: TInfractructure): Promise<THttpResponse> {
-       try {
+        try {
             const result = await this.loginUseCase.execute(data.body, infrastructure)
 
             return {
